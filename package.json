@@ -4,9 +4,37 @@
   "repository": "git@github.com:kriskuiper/plantly.git",
   "author": "Kris Kuiper",
   "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "run-s build:*",
+    "build:static": "ncp src/static dist",
+    "build:js": "rollup -c",
+    "predev": "rimraf dist && yarn build:static",
+    "dev": "run-p dev:* serve",
+    "dev:static": "chokidar \"src/static/**\" -c \"yarn build:static\"",
+    "dev:js": "rollup -c --watch",
+    "serve": "sirv dist --dev",
+    "netlify:dev": "netlify dev"
+  },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.3",
     "nunjucks": "^3.2.2"
+  },
+  "optionalDependencies": {
+    "cypress": "^5.1.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "chokidar-cli": "^2.1.0",
+    "jest": "^26.4.2",
+    "ncp": "^2.0.0",
+    "netlify-cli": "^2.61.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.26.11",
+    "rollup-plugin-terser": "^7.0.2",
+    "sirv-cli": "^1.0.6"
   }
 }

@@ -17,7 +17,7 @@
 
 [[redirects]]
   from = "/results"
-  to = "/.netlify/functions/get-results"
+  to = "/.netlify/functions/get-results-page"
   status = 200
 
 [[redirects]]

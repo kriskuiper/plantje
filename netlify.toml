@@ -1,0 +1,18 @@
+[build]
+  command = "yarn build"
+  functions = "functions"
+  publish = "build"
+
+[dev]
+  command = "yarn dev"
+  functions = "functions/"
+  port = 4100
+
+[[redirects]]
+  from = "/plants"
+  to = "/.netlify/functions/get-user-plants"
+  status = 200
+
+  from = "/results"
+  to = "/.netlify/functions/get-plant-results"
+  status = 200

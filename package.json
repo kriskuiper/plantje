@@ -1,0 +1,12 @@
+{
+  "name": "plantly",
+  "version": "0.1.0",
+  "repository": "git@github.com:kriskuiper/plantly.git",
+  "author": "Kris Kuiper",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.3",
+    "nunjucks": "^3.2.2"
+  }
+}

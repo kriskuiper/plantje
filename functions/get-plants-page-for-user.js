@@ -1,10 +1,8 @@
-const render = require('../utils/render')
+const pageTemplate = require('./views/plants')
 
 exports.handler = async () => {
-  const fileContents = await render('plants', {})
-
   return {
     statusCode: 302,
-    body: fileContents
+    body: pageTemplate({})
   }
 }

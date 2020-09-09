@@ -15,8 +15,8 @@ module.exports = {
     'js',
     'json'
   ],
-  testMatch: {
+  testMatch: [
     utilsTestPath,
     assetsTestPath
-  }
+  ]
 }

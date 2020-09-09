@@ -1,3 +1,4 @@
+module.exports = (data) => `
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,5 +14,5 @@
   
     <script src="/scripts/bundle.js"></script>
   </body>
-</html>
+</html>`
 

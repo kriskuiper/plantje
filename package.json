@@ -17,6 +17,7 @@
     "netlify:dev": "netlify dev",
     "test": "run-s test:unit test:e2e-cli",
     "test:unit": "jest",
+    "test:unit-dev": "jest --watchAll",
     "test:e2e-cli": "run-p --race netlify:dev cy:run",
     "test:e2e-dev": "run-p --race netlify:dev cy:open",
     "cy:run": "cypress run",
@@ -26,6 +27,7 @@
     "dotenv-safe": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.3",
+    "node-fetch": "^2.6.1",
     "nunjucks": "^3.2.2"
   },
   "optionalDependencies": {

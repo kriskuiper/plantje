@@ -17,6 +17,7 @@
     "netlify:dev": "netlify dev"
   },
   "dependencies": {
+    "dotenv-safe": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.3",
     "nunjucks": "^3.2.2"

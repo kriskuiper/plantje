@@ -1,4 +1,4 @@
-name: E2E
+name: E2E tests
 
 env:
   TREFLE_API_TOKEN: ${{ secrets.TREFLE_API_TOKEN }}

@@ -11,6 +11,21 @@
     <h1>Plantly</h1>
   </header>
 
+  <form action="/results">
+    <section>
+      <label>
+        Zoekopdracht
+        <input
+          type="search"
+          name="q"
+          data-test="plant-search-input"
+        >
+      </label>
+    </section>
+
+    <button type="submit" data-test="plant-search-button">Zoeken</button>
+  </form>
+
   <a href="/plants">Jouw planten</a>
 
   <script src="/scripts/bundle.js"></script>

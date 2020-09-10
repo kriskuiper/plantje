@@ -9,5 +9,11 @@
   <header>
     <h1>Resultaten</h1>
   </header>
+
+  {% for plant in data %}
+  <article data-test="plant-article">
+    <h2>{{ plant.common_name }}</h2>
+  </article>
+  {% endfor %}
 </body>
 </html>

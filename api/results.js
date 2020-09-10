@@ -11,7 +11,7 @@ module.exports = async (request, response) => {
   } catch (error) {
     const errorTemplate = await render('error', { data })
 
-    response.status(500)
+    response.status(404)
     response.send(errorTemplate)
   }
 }

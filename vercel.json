@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/plants", "destination": "/api/plants" },
+    { "source": "/results", "destination": "/api/results" }
+  ] 
+}

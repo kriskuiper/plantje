@@ -1,8 +1,17 @@
+const fetchFromTrefle = require('../utils/fetch-from-trefle')
 const render = require('../utils/render')
 
 module.exports = async (request, response) => {
-  const resultsTemplate = await render('results', {})
+  try {
+    const { data } = await fetchFromTrefle('/plants/search', request.query)
+    const resultsTemplate = await render('results', { data })
 
-  response.status(200)
-  response.send(resultsTemplate)
+    response.status(200)
+    response.send(resultsTemplate)
+  } catch (error) {
+    const errorTemplate = await render('error', { data })
+
+    response.status(500)
+    response.send(errorTemplate)
+  }
 }

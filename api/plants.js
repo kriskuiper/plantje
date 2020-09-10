@@ -5,7 +5,7 @@ module.exports = async (request, response) => {
     const plantsTemplate = await render('plants', {})
 
     response.status(200)
-    response.json(plantsTemplate)
+    response.send(plantsTemplate)
   } catch (error) {
     const errorTemplate = await render('error', {})
 

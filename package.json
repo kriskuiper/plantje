@@ -7,7 +7,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "run-s build:*",
-    "build:static": "ncp src/static dist && ncp .env.example dist/.env.example",
+    "build:static": "ncp src/static dist",
     "build:js": "rollup -c",
     "predev": "rimraf dist && yarn build:static",
     "dev": "run-p dev:* serve",
@@ -24,7 +24,7 @@
     "cy:open": "cypress open"
   },
   "dependencies": {
-    "dotenv-safe": "^8.2.0",
+    "dotenv": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.3",
     "node-fetch": "^2.6.1",

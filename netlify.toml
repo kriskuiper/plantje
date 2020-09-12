@@ -1,0 +1,26 @@
+[build]
+  command = "yarn build"
+  publish = "dist"
+  functions = "functions/"
+
+[dev]
+  command = "yarn dev"
+  framework = "#custom"
+  port = 3031
+  targetPort = 5000
+  functions = "functions/"
+
+[[redirects]]
+  from = "/plants"
+  to = "/.netlify/functions/plants"
+  status = 200
+
+[[redirects]]
+  from = "/results"
+  to = "/.netlify/functions/results"
+  status = 200
+
+[[redirects]]
+  from = "/results?*"
+  to = "/.netlify/functions/results?:splat"
+  status = 200

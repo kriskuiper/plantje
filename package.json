@@ -13,13 +13,13 @@
     "dev": "run-p dev:* serve",
     "dev:static": "chokidar \"src/static/**\" -c \"yarn build:static\"",
     "dev:js": "rollup -c --watch",
-    "serve": "sirv dist --dev --port $PORT",
-    "vercel:dev": "vercel dev",
+    "serve": "sirv dist --dev",
+    "netlify:dev": "netlify dev",
     "test": "run-s test:unit test:e2e-cli",
     "test:unit": "jest",
     "test:unit-dev": "jest --watchAll",
-    "test:e2e-cli": "run-p --race vercel:dev cy:run",
-    "test:e2e-dev": "run-p --race vercel:dev cy:open",
+    "test:e2e-cli": "run-p --race netlify:dev cy:run",
+    "test:e2e-dev": "run-p --race netlify:dev cy:open",
     "cy:run": "cypress run",
     "cy:open": "cypress open"
   },
@@ -39,11 +39,11 @@
     "chokidar-cli": "^2.1.0",
     "jest": "^26.4.2",
     "ncp": "^2.0.0",
+    "netlify-cli": "^2.62.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "rollup": "^2.26.11",
     "rollup-plugin-terser": "^7.0.2",
-    "sirv-cli": "^1.0.6",
-    "vercel": "^20.1.0"
+    "sirv-cli": "^1.0.6"
   }
 }

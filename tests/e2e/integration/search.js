@@ -8,6 +8,13 @@ describe('Can search for plants', () => {
     cy.visit('/')
 
     cy.get(searchInput)
+      .should('be.visible')
+  })
+
+  it('Shows results on result page', () => {
+    cy.visit('/')
+
+    cy.get(searchInput)
       .type(searchValue)
 
     cy.get(searchButton)

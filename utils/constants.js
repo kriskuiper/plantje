@@ -3,7 +3,7 @@ const errors = {
 }
 
 const cookies = {
-  USER_ID = 'plantly_user_id'
+  USER_ID: 'plantly_user_id'
 }
 
 module.exports = {

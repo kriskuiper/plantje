@@ -13,8 +13,6 @@ exports.handler = async ({ queryStringParameters }) => {
 
   try {
     const { data } = await fetchFromTrefle('/plants/search', queryStringParameters)
-
-    console.log(data)
     
     return {
       statusCode: 200,

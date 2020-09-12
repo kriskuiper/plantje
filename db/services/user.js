@@ -1,3 +1,7 @@
+const cloneDeep = require('lodash.clonedeep')
+
+const fetchFromTrefle = require('../../utils/fetch-from-trefle')
+const jwt = require('../../utils/jwt')
 const User = require('../models/User')
 
 /**
@@ -9,8 +13,15 @@ const User = require('../models/User')
  * 
  * @return {Promise} A promise which resolves to the id of the plant that was removed
  */
-exports.removePlant = async (encryptedUserId, plantId) => {
-  // Remove a plant from a user
+async function removePlant(encryptedUserId, plantId) {
+  const foundUser = await User.findById(jwt.decrypt(encryptedUserId))
+
+  foundUser.plants = foundUser.plants.filter(plant => {
+    return plant.id !== plantId
+  })
+  foundUser.save()
+
+  return plantId
 }
 
 /**
@@ -22,17 +33,30 @@ exports.removePlant = async (encryptedUserId, plantId) => {
  * 
  * @return {Promise} A promise which resolves to the id of the plant that was added
  */
-exports.addPlant = async (encryptedUserId, plantId) => {
-  // Add a plant to a user
+async function addPlant(encryptedUserId, plantId) {
+  const foundUser = await User.findById(jwt.decrypt(encryptedUserId))
+  const plantData = await fetchFromTrefle(`/plants/${plantId}`)
+
+  foundUser.plants = [
+    ...cloneDeep(foundUser.plants),
+    ...cloneDeep(plantData)
+  ]
+  foundUser.save()
+
+  return plantId
 }
 
 /**
  * @description Adds a user to the database
  * 
- * @return {Promise} A promise which resolves to true or rejects to false
+ * @return {Promise} A promise which resolves to the encrypted user id
  */
-exports.addUser = async () => {
-  // Add a user to the DB, returns the encrypted user id
+async function addUser() {
+  const newUser = await User.create({
+    plants: []
+  })
+
+  return jwt.encrypt(newUser._id)
 }
 
 /**
@@ -40,6 +64,13 @@ exports.addUser = async () => {
  * 
  * @return {Promise} A promise which resolves to true or rejects to false
  */
-exports.removeUser = async () => {
-  // Remove a user from the DB
+async function removeUser(encryptedUserId) {
+  return User.findOneAndDelete({ _id: jwt.decrypt(encryptedUserId) })
+}
+
+module.exports = {
+  addPlant,
+  removePlant,
+  addUser,
+  removeUser
 }

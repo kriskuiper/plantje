@@ -1,5 +1,4 @@
 const plantsPage = require('./views/plants')
-const errorPage = require('./views/error')
 
 exports.handler = ({ httpMethod }) => {
   return {

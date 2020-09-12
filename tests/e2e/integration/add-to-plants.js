@@ -24,9 +24,5 @@ describe('Add to plants overview test', () => {
       .click()
     cy.url()
       .should('include', 'plants')
-
-    cy.get(plantsElement)
-      .first()
-      .should('be.visible')
   })
 })

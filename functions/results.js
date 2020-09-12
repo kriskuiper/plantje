@@ -1,4 +1,5 @@
 const fetchFromTrefle = require('../utils/fetch-from-trefle')
+const { errors } = require('../utils/constants')
 const resultsPage = require('./views/results')
 const noResultsPage = require('./views/no-results')
 const errorPage = require('./views/error')
@@ -21,13 +22,13 @@ exports.handler = async ({ queryStringParameters }) => {
       },
       body: resultsPage(data)
     }
-  } catch (error) {
+  } catch {
     return {
       statusCode: 500,
       headers: {
         'Content-Type': 'text/html'
       },
-      body: errorPage(error)
+      body: errorPage(errors.TREFLE_ERROR)
     }
   }
 }

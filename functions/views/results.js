@@ -15,6 +15,10 @@ module.exports = (data) => `
   ${data && data.map(plant => `
   <article data-test="plant-article">
     <h2>${ plant.scientific_name }</h2>
+    <form action="/.netlify/functions/add-to-plants" method="POST">
+      <input name="plant_id" value=${plant.id} type="hidden">
+      <button type="submit" data-test="add-to-plants-button">Toevoegen</button>
+    </form>
   </article>
   `).join('')}
   

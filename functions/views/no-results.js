@@ -1,19 +1,17 @@
+module.exports = (data) => `
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
   <title>Resultaten</title>
 </head>
 <body>
   <header>
-    <h1>Resultaten</h1>
+    <h1>Geen resultaten</h1>
   </header>
-
-  {% for plant in data %}
-  <article data-test="plant-article">
-    <h2>{{ plant.common_name }}</h2>
-  </article>
-  {% endfor %}
+  
+  <script src="/scripts/bundle.js"></script>
 </body>
-</html>
+</html>`

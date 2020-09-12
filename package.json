@@ -26,6 +26,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
+    "lodash.clonedeep": "^4.5.0",
     "mongoose": "^5.10.3",
     "node-fetch": "^2.6.1",
     "nunjucks": "^3.2.2"

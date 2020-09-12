@@ -6,11 +6,8 @@ const User = require('../models/User')
 
 /**
  * @description Removes a plant from a users' document
- * 
  * @param {string} encryptedUserId The encrypted user id from a cookie
- * 
  * @param {string} plantId The id of the plant to remove
- * 
  * @return {Promise} A promise which resolves to the id of the plant that was removed
  */
 async function removePlant(encryptedUserId, plantId) {
@@ -26,11 +23,8 @@ async function removePlant(encryptedUserId, plantId) {
 
 /**
  * @description Adds a plant to the users' document
- * 
  * @param {string} encryptedUserId The encrypted user id from a cookie
- * 
  * @param {string} plantId The id of the plant to remove
- * 
  * @return {Promise} A promise which resolves to the id of the plant that was added
  */
 async function addPlant(encryptedUserId, plantId) {
@@ -48,7 +42,6 @@ async function addPlant(encryptedUserId, plantId) {
 
 /**
  * @description Adds a user to the database
- * 
  * @return {Promise} A promise which resolves to the encrypted user id
  */
 async function addUser() {
@@ -61,7 +54,6 @@ async function addUser() {
 
 /**
  * @description Removes a user from the database
- * 
  * @return {Promise} A promise which resolves to true or rejects to false
  */
 async function removeUser(encryptedUserId) {

@@ -1,5 +1,6 @@
 const errors = {
-  FAILED_REQUEST: 'Failed to fetch data'
+  TREFLE_ERROR: 'Ik kon geen plantjes ophalen. Probeer het later opnieuw.',
+  DATABASE_ERROR: 'Er is iets kapot in de database, hier kan je niks aan doen.'
 }
 
 const cookies = {

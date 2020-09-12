@@ -4,6 +4,7 @@ env:
   TREFLE_API_TOKEN: ${{ secrets.TREFLE_API_TOKEN }}
   TREFLE_BASE_URL: ${{ secrets.TREFLE_BASE_URL }}
   MONGODB_URI: ${{ secrets.MONGODB_URI }}
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
 on:
   push:

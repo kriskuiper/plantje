@@ -11,6 +11,6 @@ describe('Can visit the necessary pages', () => {
 
   it('Can visit the results page', () => {
     cy.visit('/results')
-    cy.contains('Resultaten').should('be.visible')
+    cy.contains('Geen resultaten').should('be.visible')
   })
 })

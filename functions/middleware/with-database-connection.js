@@ -1,4 +1,5 @@
 const connectToDB = require('../../db/services/connect')
+const { errors } = require('../../utils/constants')
 const errorPage = require('../views/error')
 
 /**
@@ -14,10 +15,10 @@ module.exports = (handler) => {
       .then(() => {
         return handler(event, context, callback)
       })
-      .catch(error => {
+      .catch(() => {
         return {
           statusCode: 500,
-          body: errorPage(error)
+          body: errorPage(errors.DATABASE_ERROR)
         }
       })
   }

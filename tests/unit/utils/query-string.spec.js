@@ -1,4 +1,4 @@
-const toQueryString = require('@/utils/to-query-string')
+const { toQueryString, fromQueryString } = require('@/utils/query-string')
 
 describe('Format object to query string', () => {
   it('Parses an object to a query string', () => {
@@ -15,5 +15,14 @@ describe('Format object to query string', () => {
     const actualQueryString = toQueryString()
 
     expect(actualQueryString).toEqual('')
+  })
+
+  it('Converts a string to an object', () => {
+    const actualObject = fromQueryString('plant_id=test123')
+    const expectedObject = {
+      plant_id: 'test123'
+    }
+
+    expect(actualObject).toEqual(expectedObject)
   })
 })

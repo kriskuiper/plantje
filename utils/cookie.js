@@ -44,7 +44,7 @@ module.exports = {
    * @param {string} key The key of the cookie you want the value from
    * @returns {string} The cookie value you asked for
    */
-  get(cookies, key) {
+  get(cookies = '', key = '') {
     const comma = ','
     const delimiter = ';' + ' '
     const assignmentOperator = '='

@@ -1,4 +1,4 @@
-const cloneDeep = require('lodash.clonedeep')
+const mongoose = require('mongoose')
 
 const fetchFromTrefle = require('../../utils/fetch-from-trefle')
 const jwt = require('../../utils/jwt')
@@ -32,8 +32,8 @@ async function addPlant(encryptedUserId, plantId) {
   const plantData = await fetchFromTrefle(`/plants/${plantId}`)
 
   foundUser.plants = [
-    ...cloneDeep(foundUser.plants),
-    ...cloneDeep(plantData)
+    foundUser.plants,
+    plantData
   ]
   foundUser.save()
 
@@ -46,10 +46,13 @@ async function addPlant(encryptedUserId, plantId) {
  */
 async function addUser() {
   const newUser = await User.create({
+    _id: new mongoose.Types.ObjectId,
     plants: []
   })
+  
+  await newUser.save()
 
-  return jwt.encrypt(newUser._id)
+  return jwt.encrypt(newUser._id.toString())
 }
 
 /**

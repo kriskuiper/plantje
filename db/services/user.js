@@ -32,8 +32,8 @@ async function addPlant(encryptedUserId, plantId) {
   const plantData = await fetchFromTrefle(`/plants/${plantId}`)
 
   foundUser.plants = [
-    foundUser.plants,
-    plantData
+    ...foundUser.plants,
+    plantData.data
   ]
   foundUser.save()
 

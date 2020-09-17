@@ -1,5 +1,5 @@
 # Production build
-dist
+public/build
 
 # Logs
 logs

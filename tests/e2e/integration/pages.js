@@ -3,14 +3,4 @@ describe('Can visit the necessary pages', () => {
     cy.visit('/')
     cy.contains('Plantly').should('be.visible')
   })
-
-  it('Can visit the plants page', () => {
-    cy.visit('/.netlify/functions/plants')
-    cy.contains('Jouw plantjes').should('be.visible')
-  })
-
-  it('Can visit the results page', () => {
-    cy.visit('/results')
-    cy.contains('Geen resultaten').should('be.visible')
-  })
 })

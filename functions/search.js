@@ -1,14 +1,10 @@
 const fetchFromTrefle = require('../utils/fetch-from-trefle')
-const { errors } = require('../utils/constants')
-const resultsPage = require('./views/results')
-const noResultsPage = require('./views/no-results')
-const errorPage = require('./views/error')
 
 exports.handler = async ({ queryStringParameters }) => {
-  if (!queryStringParameters.q) {
+  if (!queryStringParameters) {
     return {
-      statusCode: 200,
-      body: noResultsPage()
+      statusCode: 500,
+      body: JSON.stringify({ message: 'Need query param' })
     }
   }
 
@@ -20,7 +16,7 @@ exports.handler = async ({ queryStringParameters }) => {
       headers: {
         'Content-Type': 'text/html'
       },
-      body: resultsPage(data)
+      body: JSON.stringify(data)
     }
   } catch {
     return {
@@ -28,7 +24,7 @@ exports.handler = async ({ queryStringParameters }) => {
       headers: {
         'Content-Type': 'text/html'
       },
-      body: errorPage(errors.TREFLE_ERROR)
+      body: JSON.stringify({ message: 'Error kapot' })
     }
   }
 }

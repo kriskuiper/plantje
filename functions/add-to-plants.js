@@ -2,7 +2,6 @@ const { addPlant, addUser } = require('../db/services/user')
 const { cookies } = require('../utils/constants')
 const cookie = require('../utils/cookie')
 const { fromQueryString } = require('../utils/query-string')
-const errorPage = require('./views/error')
 const withDatabaseConnection = require('./middleware/with-database-connection')
 
 exports.handler = withDatabaseConnection(
@@ -13,14 +12,11 @@ exports.handler = withDatabaseConnection(
     if (userIdCookie) {
       return addPlant(userIdCookie, plant_id)
         .then(() => ({
-          statusCode: 302,
-          headers: {
-            Location: '/.netlify/functions/plants'
-          }
+          statusCode: 204
         }))
         .catch(error => ({
           statusCode: 500,
-          body: errorPage(error)
+          body: JSON.stringify({ message: 'Error' })
         }))
     }
 
@@ -30,13 +26,12 @@ exports.handler = withDatabaseConnection(
       .then(() => ({
         statusCode: 302,
         headers: {
-          Location: '/.netlify/functions/plants',
           'Set-Cookie': cookie.set(cookies.USER_ID, encryptedUserId)
         }
       }))
       .catch(() => ({
         statusCode: 500,
-        body: errorPage(error)
+        body: JSON.stringify({ message: 'Error' })
       }))
   }
 )

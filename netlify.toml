@@ -1,6 +1,6 @@
 [build]
   command = "yarn build"
-  publish = "dist"
+  publish = "public/build"
   functions = "functions/"
 
 [dev]
@@ -9,17 +9,3 @@
   port = 3031
   targetPort = 5000
   functions = "functions/"
-
-[[redirects]]
-  from = "/results"
-  to = "/.netlify/functions/results"
-  status = 200
-
-[[redirects]]
-  from = "/results?*"
-  to = "/.netlify/functions/results?:splat"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/404.html"

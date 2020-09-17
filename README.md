@@ -1,4 +1,4 @@
-# Plantly
+# Plantje
 > 🌱 Keep track of the plants you own at home
 
 ## Installation & development
@@ -11,5 +11,5 @@
 $ git clone git@github.com:kriskuiper/plantly.git
 $ cp .env.example .env
 $ yarn install
-$ yarn netlify:dev
+$ yarn dev:netlify
 ```

@@ -1,6 +1,5 @@
 const connectToDB = require('../../db/services/connect')
 const { errors } = require('../../utils/constants')
-const errorPage = require('../views/error')
 
 /**
  * @description Ensures a database connection is made before a
@@ -18,7 +17,7 @@ module.exports = (handler) => {
       .catch(() => {
         return {
           statusCode: 500,
-          body: errorPage(errors.DATABASE_ERROR)
+          body: JSON.stringify({ message: 'No DB connection' })
         }
       })
   }

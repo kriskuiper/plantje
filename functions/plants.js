@@ -2,7 +2,6 @@ const cookie = require('../utils/cookie')
 const { cookies } = require('../utils/constants')
 const { getPlants } = require('../db/services/user')
 
-const plantsPage = require('./views/plants')
 const withDatabaseConnection = require('./middleware/with-database-connection')
 
 exports.handler = withDatabaseConnection(
@@ -17,15 +16,15 @@ exports.handler = withDatabaseConnection(
         headers: {
           'Content-Type': 'text/html'
         },
-        body: plantsPage(plants),
+        body: JSON.stringify(plants),
       }
     }
 
     return {
-      statusCode: 200,
+      statusCode: 404,
       headers: {
         'Content-Type': 'text/html'
       },
-      body: plantsPage([]),
+      body: JSON.stringify({ message: 'No plants found' }),
     }
 })

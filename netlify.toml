@@ -11,11 +11,6 @@
   functions = "functions/"
 
 [[redirects]]
-  from = "/plants"
-  to = "/.netlify/functions/plants"
-  status = 301
-
-[[redirects]]
   from = "/results"
   to = "/.netlify/functions/results"
   status = 200
@@ -24,3 +19,7 @@
   from = "/results?*"
   to = "/.netlify/functions/results?:splat"
   status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"

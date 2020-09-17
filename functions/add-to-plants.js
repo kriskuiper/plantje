@@ -15,7 +15,7 @@ exports.handler = withDatabaseConnection(
         .then(() => ({
           statusCode: 302,
           headers: {
-            Location: '/plants'
+            Location: '/.netlify/functions/plants'
           }
         }))
         .catch(error => ({
@@ -30,7 +30,7 @@ exports.handler = withDatabaseConnection(
       .then(() => ({
         statusCode: 302,
         headers: {
-          Location: '/plants',
+          Location: '/.netlify/functions/plants',
           'Set-Cookie': cookie.set(cookies.USER_ID, encryptedUserId)
         }
       }))

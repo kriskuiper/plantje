@@ -8,13 +8,24 @@ const withDatabaseConnection = require('./middleware/with-database-connection')
 exports.handler = withDatabaseConnection(
   async ({ headers }) => {
     const userIdCookie = cookie.get(headers.cookie, cookies.USER_ID)
-    const plants = await getPlants(userIdCookie)
+    
+    if (userIdCookie) {
+      const plants = await getPlants(userIdCookie)
+
+      return {
+        statusCode: 200,
+        headers: {
+          'Content-Type': 'text/html'
+        },
+        body: plantsPage(plants),
+      }
+    }
 
     return {
       statusCode: 200,
       headers: {
         'Content-Type': 'text/html'
       },
-      body: plantsPage(plants),
+      body: plantsPage([]),
     }
 })

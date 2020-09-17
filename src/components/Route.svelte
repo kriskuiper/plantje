@@ -9,6 +9,6 @@
   {#if component}
     <svelte:component this={component} />
   {:else}
-    <slot />
+    <h1>Not found</h1>
   {/if}
 {/if}

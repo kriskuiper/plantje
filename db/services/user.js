@@ -5,6 +5,16 @@ const jwt = require('../../utils/jwt')
 const User = require('../models/User')
 
 /**
+ * 
+ * @param {string} encryptedUserId 
+ */
+async function getPlants(encryptedUserId) {
+  const foundUser = await User.findById(jwt.decrypt(encryptedUserId))
+
+  return foundUser.plants || []
+}
+
+/**
  * @description Removes a plant from a users' document
  * @param {string} encryptedUserId The encrypted user id from a cookie
  * @param {string} plantId The id of the plant to remove
@@ -64,6 +74,7 @@ async function removeUser(encryptedUserId) {
 }
 
 module.exports = {
+  getPlants,
   addPlant,
   removePlant,
   addUser,

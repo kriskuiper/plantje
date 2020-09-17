@@ -13,7 +13,7 @@
 [[redirects]]
   from = "/plants"
   to = "/.netlify/functions/plants"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/results"

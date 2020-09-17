@@ -5,7 +5,7 @@ describe('Can visit the necessary pages', () => {
   })
 
   it('Can visit the plants page', () => {
-    cy.visit('/plants')
+    cy.visit('/.netlify/functions/plants')
     cy.contains('Jouw plantjes').should('be.visible')
   })
 

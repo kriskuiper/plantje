@@ -1,4 +1,4 @@
-const utilsTestPath = '<rootDir>/tests/unit/utils/*.spec.js'
+const libTestPath = '<rootDir>/tests/unit/lib/*.spec.js'
 const assetsTestPath = '<rootDir>/tests/unit/assets/*.spec.js'
 
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
     'json'
   ],
   testMatch: [
-    utilsTestPath,
+    libTestPath,
     assetsTestPath
   ]
 }

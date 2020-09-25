@@ -1,4 +1,4 @@
-const { toQueryString, fromQueryString } = require('@/utils/query-string')
+const { toQueryString, fromQueryString } = require('@/lib/query-string')
 
 describe('Format object to query string', () => {
   it('Parses an object to a query string', () => {

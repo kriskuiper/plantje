@@ -1,4 +1,4 @@
-const fetchFromTrefle = require('@/utils/fetch-from-trefle')
+const fetchFromTrefle = require('@/lib/fetch-from-trefle')
 
 describe('Fetch data from trefle', () => {
   it('Can get plants by default', async () => {

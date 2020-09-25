@@ -1,4 +1,4 @@
-const { encrypt, decrypt } = require('@/utils/jwt')
+const { encrypt, decrypt } = require('@/lib/jwt')
 const jwtRegex = /^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$/
 
 describe('JWT test', () => {

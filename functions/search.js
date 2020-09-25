@@ -1,4 +1,4 @@
-const fetchFromTrefle = require('../utils/fetch-from-trefle')
+const fetchFromTrefle = require('../lib/fetch-from-trefle')
 
 exports.handler = async ({ queryStringParameters }) => {
   if (!queryStringParameters) {

@@ -1,4 +1,4 @@
-const cookie = require('@/utils/cookie')
+const cookie = require('@/lib/cookie')
 const cookieTestKey = 'test'
 const cookieTestValue = '1a2b3c4d'
 const cookieTestTwoValue = '1a2b3c4e'

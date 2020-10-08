@@ -4,7 +4,7 @@
   "fixturesFolder": "tests/e2e/fixtures",
   "screenshotsFolder": "tests/e2e/screenshots",
   "pluginsFile": false,
-  "supportFile": false,
+  "supportFile": "tests/e2e/support/index.js",
   "video": false,
   "chromeWebSecurity": false
 }

@@ -4,7 +4,7 @@ exports.handler = async ({ queryStringParameters }) => {
   if (!queryStringParameters) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: 'Need query param' })
+      body: JSON.stringify({ message: 'No query parameters :(' })
     }
   }
 
@@ -14,7 +14,7 @@ exports.handler = async ({ queryStringParameters }) => {
     return {
       statusCode: 200,
       headers: {
-        'Content-Type': 'text/html'
+        'Content-Type': 'application/json; charset=utf8',
       },
       body: JSON.stringify(data)
     }
@@ -22,7 +22,7 @@ exports.handler = async ({ queryStringParameters }) => {
     return {
       statusCode: 500,
       headers: {
-        'Content-Type': 'text/html'
+        'Content-Type': 'application/json; charset=utf8'
       },
       body: JSON.stringify({ message: 'Error kapot' })
     }

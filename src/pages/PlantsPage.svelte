@@ -1,5 +1,5 @@
 <script>
-  import Link from './Link.svelte'
+  import Link from '../components/Link.svelte'
 </script>
 
 <h1>Your plants will be dropped here</h1>

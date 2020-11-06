@@ -1,18 +1,18 @@
-const plantsResult = '[data-test="plants-result]'
+const query = 'Pachira'
 
 describe('Search test', () => {
   beforeEach(() => {
     cy.server()
   })
 
-  it('Can enter a search query', () => {
+  it.skip('Can enter a search query', () => {
     cy.searchForPlants()
   })
 
-  it('Shows results', () => {
-    cy.searchForPlants()
+  it.skip('Shows results on page', () => {
+    cy.searchForPlants(query)
 
-    cy.get(plantsResult)
+    cy.contains(query)
       .first()
       .should('be.visible')
   })

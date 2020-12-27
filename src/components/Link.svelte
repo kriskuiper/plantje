@@ -8,7 +8,7 @@
     props = { ...$$props, href }
   }
 
-  function handleLinkClick(event) {
+  const handleLinkClick = (event) => {
     router.push(event.currentTarget.pathname)
   }
 </script>

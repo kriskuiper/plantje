@@ -1,5 +1,6 @@
 <script>
   import Link from '../components/Link.svelte'
+  import Plant from '../components/Plant.svelte'
 
   let input
   let isPending
@@ -58,9 +59,7 @@
 {#if hasPlants}
    <section>
     {#each plants as plant}
-       <article data-test="plants-result">
-        <h2>{plant.scientific_name}</h2>
-       </article>
+      <Plant {plant} />
     {/each}
    </section>
 {/if}

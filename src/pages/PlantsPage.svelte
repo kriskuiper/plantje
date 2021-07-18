@@ -25,7 +25,7 @@
     }
   }
 
-  onMount(async () => {
+  const handleLoadPlants = async () => {
     try {
       isLoading = true
       initialPlantsData = await getPlantsData($savedPlants)
@@ -34,7 +34,9 @@
     } finally {
       isLoading = false
     }
-  })
+  }
+
+  onMount(handleLoadPlants)
 </script>
 
 <h1>Your plants will be dropped here</h1>

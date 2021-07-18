@@ -25,6 +25,13 @@
 </script>
 
 <article data-test="plants-result">
+  <img
+    src={plant.image_url}
+    alt="Plant"
+    height="400"
+    width="400"
+    loading="lazy"
+  >
   <h2>{plant.scientific_name}</h2>
   <button on:click={() => handleClick(defaultPlantId)}>
     {buttonText}

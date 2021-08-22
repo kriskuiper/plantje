@@ -1,4 +1,4 @@
-name: Unit tests
+name: Continuous tests
 
 env:
   TREFLE_API_TOKEN: ${{ secrets.TREFLE_API_TOKEN }}
@@ -15,7 +15,8 @@ on:
       - master
 
 jobs:
-  test:
+  test-unit:
+    name: Unit tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,3 +27,15 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install
       - run: yarn test:unit
+
+  test-e2e:
+    name: E2e tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn dev:netlify
+          wait-on: 'http://localhost:3031'

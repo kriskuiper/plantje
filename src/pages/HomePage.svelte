@@ -35,7 +35,7 @@
 <h1>Welcome to Plantje!</h1>
 <form
   method="GET"
-  action="/.netlify/functions/search"
+  action="/api/search"
   on:submit|preventDefault={handleSubmit}
 >
   <label>

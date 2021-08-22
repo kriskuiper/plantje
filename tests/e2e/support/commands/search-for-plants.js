@@ -1,22 +1,19 @@
-const searchField = '[data-test="plants-search-field"]'
-const searchSubmitButton = '[data-test="plants-submit-button"]'
-const defaultSearchQuery = 'Pachira'
+const DEFAULT_SEARCH_QUERY = 'Pachira'
 
-export default (query = defaultSearchQuery) => {
-  cy.route({
-    url: `/.netlify/functions/search?query=${query}`,
-    status: 200,
-    response: 'fixture:plants',
+Cypress.Commands.add('searchForPlants', (query = DEFAULT_SEARCH_QUERY) => {
+  cy.intercept('GET', '/api/search**',{
+    statusCode: 200,
+    fixture: 'plants.json',
   }).as('plantsSearch')
 
   cy.visit('/')
 
-  cy.get(searchField)
+  cy.getByTestDirective('plants-search-field')
     .should('be.visible')
     .type(query)
-    
-  cy.get(searchSubmitButton)
+
+  cy.getByTestDirective('plants-submit-button')
     .click()
 
   cy.wait('@plantsSearch')
-}
+})

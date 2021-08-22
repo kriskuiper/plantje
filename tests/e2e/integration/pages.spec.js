@@ -1,5 +1,5 @@
-describe('Can visit the necessary pages', () => {
-  it('Can visit the home page', () => {
+describe('Pages', () => {
+  it('visits homepage', () => {
     cy.visit('/')
     cy.contains('Plantje').should('be.visible')
   })

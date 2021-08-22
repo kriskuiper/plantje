@@ -1,6 +1,10 @@
 describe('Pages', () => {
   it('visits homepage', () => {
     cy.visit('/')
-    cy.contains('Plantje').should('be.visible')
+    cy.get('h1')
+      .should('exist')
+      .and('be.visible')
+  })
+
   })
 })

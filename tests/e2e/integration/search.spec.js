@@ -1,15 +1,11 @@
 const query = 'Pachira'
 
-describe('Search test', () => {
-  beforeEach(() => {
-    cy.server()
-  })
-
-  it('Can enter a search query', () => {
+describe('Search', () => {
+  it('is able to enter search query', () => {
     cy.searchForPlants()
   })
 
-  it('Shows results on page', () => {
+  it('shows results on page', () => {
     cy.searchForPlants(query)
 
     cy.contains(query)

@@ -1,3 +1,2 @@
-import searchForPlants from './commands/search-for-plants'
-
-Cypress.Commands.add('searchForPlants', searchForPlants)
+import './commands/get-by-test-directive'
+import './commands/search-for-plants'

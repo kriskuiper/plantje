@@ -6,5 +6,10 @@ describe('Pages', () => {
       .and('be.visible')
   })
 
+  it('visits plants page', () => {
+    cy.visit('/plants')
+    cy.get('h1')
+      .should('exist')
+      .and('be.visible')
   })
 })

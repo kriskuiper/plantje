@@ -1,4 +1,6 @@
 # Plantje
+⚠️ Abandoned since the API used is no longer supported.
+
 > 🌱 Keep track of the plants you own at home
 
 ## Installation & development
